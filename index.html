@@ -1,15 +1,36 @@
-<!-- TODO 1: Create the HTML Boilerplate -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support</title>
+</head>
+<body>
+    <h1>
+        Breadwinner Support
+    </h1>
+    <hr/>
+    <a id="supportLink" alt="Support" target="_blank">
+      <h3>Support</h3>
+    </a>
+    <script type="text/javascript">
+      var org_id = "";
+      var email = "";
+      window.onload = () => {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        org_id = urlParams.get("SF_Org_id");
+        email = urlParams.get("email");
+        console.log(org_id);
+        console.log(email);
+        // Construct the URL with query parameters
+        const supportUrl = `./support.html?SF_Org_id=${encodeURIComponent(org_id)}&email=${encodeURIComponent(email)}`;
+        console.log(supportUrl);
 
-<!-- TODO 2: Add Your previous projects' HTML into the public folder -->
-
-<!-- TODO 3: Take screenshots of your project previews and add the images to the images folder -->
-
-<!-- TODO 4: Add titles/subtitles etc. -->
-
-<!-- TODO 5: Add a link to the project pages -->
-
-<!-- TODO 6: Add images to show the project previews
-HINT for TODO 6: You can use the height attribute set to 200 to make the image smaller:
-https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-height -->
-
-<!-- TODO 7: Add the Contact Me and About Me page links -->
+        // Set the href attribute dynamically
+        document.getElementById('supportLink').setAttribute('href', supportUrl);
+      };
+    </script>
+</body>
+</html>
