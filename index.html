@@ -14,23 +14,24 @@
     <a id="supportLink" alt="Support" target="_blank">
       <h3>Support</h3>
     </a>
-    <script type="text/javascript">
-      var org_id = "";
-      var email = "";
-      window.onload = () => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        org_id = urlParams.get("SF_Org_id");
-        email = urlParams.get("email");
-        console.log(org_id);
-        console.log(email);
-        // Construct the URL with query parameters
-        const supportUrl = `./support.html?SF_Org_id=${encodeURIComponent(org_id)}&email=${encodeURIComponent(email)}`;
-        console.log(supportUrl);
-
-        // Set the href attribute dynamically
-        document.getElementById('supportLink').setAttribute('href', supportUrl);
+    <script type='text/javascript'>
+      function initEmbeddedMessaging() {
+        try {
+          embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+    
+          embeddedservice_bootstrap.init(
+            '00DIU000003pPbr',
+            'BW_Deployment',
+            'https://orgfarm-b1c504fdeb-dev-ed.develop.my.site.com/ESWBWDeployment1738231540236',
+            {
+              scrt2URL: 'https://orgfarm-b1c504fdeb-dev-ed.develop.my.salesforce-scrt.com'
+            }
+          );
+        } catch (err) {
+          console.error('Error loading Embedded Messaging: ', err);
+        }
       };
     </script>
+    <script type='text/javascript' src='https://orgfarm-b1c504fdeb-dev-ed.develop.my.site.com/ESWBWDeployment1738231540236/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
