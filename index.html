@@ -31,6 +31,25 @@
           console.error('Error loading Embedded Messaging: ', err);
         }
       };
+
+        //Passing Web Context to Prechat - BEGIN
+        var sf_org_id = "";
+        window.onload = () => {
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+          sf_org_id = urlParams.get("sf_org_id");
+          console.log(sf_org_id);
+      };
+      window.addEventListener("onEmbeddedMessagingReady", e => {
+          //log event
+          console.log("onEmbeddedMessagingReady event triggered");
+
+          //Set invisible prechat field
+          embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+              "sf_org_id" : sf_org_id
+          });
+      });
+    //Passing Web Context to Prechat - END
     </script>
     <script type='text/javascript' src='https://orgfarm-b1c504fdeb-dev-ed.develop.my.site.com/ESWBWDeployment1738231540236/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
