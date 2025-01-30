@@ -37,7 +37,7 @@
         } catch (err) {
           console.error('Error loading Embedded Messaging: ', err);
         }
-      }
+      };
 
        //Passing Web Context to Prechat - BEGIN
 
@@ -46,8 +46,8 @@
         console.log("onEmbeddedMessagingReady event triggered");
 
         //Set invisible prechat field
-        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-          sf_org_id: org_id,
+          embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+            "sf_org_id" : org_id
         });
       });
       //Passing Web Context to Prechat - END
